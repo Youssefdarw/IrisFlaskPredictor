@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iris Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Iris Flower Classifier</h1>
+        <p>Welcome to the Iris Prediction App! This application uses a machine learning model to predict the species of Iris flowers based on their sepal and petal dimensions.</p>
+        
+        <h2>About the Iris Dataset</h2>
+        <p>The Iris flower dataset is a famous dataset in pattern recognition and is frequently used for testing out machine learning algorithms. It includes data from three different species of Iris (Iris setosa, Iris virginica, and Iris versicolor). Each sample in the dataset has four features: sepal length, sepal width, petal length, and petal width, measured in centimeters.</p>
+        
+        <h2>How to Use</h2>
+        <p>To predict the Iris flower species, enter the dimensions of the flower's sepals and petals below, and click "Predict".</p>
+
+        <form method="post" action="/">
+            <label for="feature1">Sepal Length (cm):</label>
+            <input type="text" id="feature1" name="feature1" required><br>
+            <label for="feature2">Sepal Width (cm):</label>
+            <input type="text" id="feature2" name="feature2" required><br>
+            <label for="feature3">Petal Length (cm):</label>
+            <input type="text" id="feature3" name="feature3" required><br>
+            <label for="feature4">Petal Width (cm):</label>
+            <input type="text" id="feature4" name="feature4" required><br>
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if result %}
+            <h2>Prediction Result:</h2>
+            <p>{{ result }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
